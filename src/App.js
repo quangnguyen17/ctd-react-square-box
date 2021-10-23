@@ -1,8 +1,8 @@
-const Box = () => {
+const Box = ({ color }) => {
   return (
     <div className="box">
-      <div className="red-square"></div>
-      <p className="text-bold">#FF6663</p>
+      <div style={{ backgroundColor: color, width: 100, height: 100 }}></div>
+      <p className="text-bold">{color}</p>
     </div>
   );
 };
@@ -10,7 +10,9 @@ const Box = () => {
 const App = () => {
   return (
     <div>
-      <Box />
+      {['red', 'green', 'blue'].map((color, key) => (
+        <Box {...{ color, key }} />
+      ))}
     </div>
   );
 };
